@@ -1,32 +1,25 @@
-//Variables
+// Variables
+const btnBorrarCurso = document.querySelectorAll('.borrar-curso');
 
-const buscador = document.querySelector('#busqueda');
 
+// EventListeners
+eventListeners();
 
-// eventListener
+function eventListeners (){
+    document.addEventListener('click', eliminarCurso)
 
-document.body.addEventListener('click', eliminarObjeto);
+}
 
-buscador.addEventListener('keyup', escribirEnecabezado);
 
 
 
 // Funciones
 
 
-function eliminarObjeto(e) {
+function eliminarCurso(e) {
     e.preventDefault();
-    if (e.target.classList.contains('borrar-curso')) {
-        let elemento;
-        elemento = e.target.parentElement.parentElement;
-        elemento.remove()
-
+    if ( e.target.classList.contains('borrar-curso')) {
+        let curso = e.target.parentElement.parentElement
+        curso.remove()
     }
-}
-
-
-function escribirEnecabezado (e) {
-    let encabezado;
-    encabezado = document.getElementById('encabezado');
-    encabezado.textContent = e.target.value;
 }
